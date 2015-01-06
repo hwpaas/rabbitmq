@@ -2,14 +2,14 @@
 
 if [ -z "$CLUSTERED" ]; then
 	# if not clustered then start it normally as if it is a single server
-	/usr/sbin/rabbitmq-server	
+	rabbitmq-server
 else
 	if [ -z "$CLUSTER_WITH" ]; then
 		# If clustered, but cluster with is not specified then again start normally, could be the first server in the
 		# cluster
-		/usr/sbin/rabbitmq-server
+		rabbitmq-server
 	else
-		/usr/sbin/rabbitmq-server -detached
+		rabbitmq-server -detached
 		rabbitmqctl stop_app
 		if [ -z "$RAM_NODE" ]; then
 			rabbitmqctl join_cluster rabbit@$CLUSTER_WITH
