@@ -2,12 +2,12 @@
 
 if [ -z "$CLUSTERED" ]; then
 	# if not clustered then start it normally as if it is a single server
-	rabbitmq-server
+	rabbitmq-server -detached
 else
 	if [ -z "$CLUSTER_WITH" ]; then
 		# If clustered, but cluster with is not specified then again start normally, could be the first server in the
 		# cluster
-		rabbitmq-server
+		rabbitmq-server -detached
 	else
 		rabbitmq-server -detached
 		rabbitmqctl stop_app

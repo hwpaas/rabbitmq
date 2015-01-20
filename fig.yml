@@ -1,5 +1,5 @@
 rabbit1:
-  image: hwpaas/rabbitmq-server
+  image: hwpaas/rabbitmq
   hostname: rabbit1
   ports:
     - "1883"
@@ -7,7 +7,7 @@ rabbit1:
     - "15672"
 
 rabbit2:
-  image: hwpaas/rabbitmq-server
+  image: hwpaas/rabbitmq
   hostname: rabbit2
   links:
     - rabbit1
@@ -20,7 +20,7 @@ rabbit2:
     - "15672"
 
 rabbit3:
-  image: hwpaas/rabbitmq-server
+  image: hwpaas/rabbitmq
   hostname: rabbit3
   links:
     - rabbit1
